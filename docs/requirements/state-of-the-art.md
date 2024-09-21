@@ -64,3 +64,6 @@
 7. <a name="link_7" href="https://qalight.ua/baza-znaniy/shho-take-api/">API</a>
 8. <a name="link_8" href="https://site-line.com.ua/semantichnij-analiz-tekstu-shcho-tse-take">Семантичний аналіз</a>
 9. <a name="link_9" href="https://uk.wikipedia.org/wiki/Інтелектуальний_аналіз_тексту">Інтелектуальний аналіз тексту</a>
+10. <a name="link_6" href="https://brandmentions.com/hub/semantrum">Semantrum </a>
+11. <a name="link_7" href="https://neticle.com/company/en">Neticle Media Intelligence</a>
+12. <a name="link_8" href="https://youscan.io/ua/">YouScan</a>
