@@ -76,7 +76,17 @@
 
 @startuml
 
-    
+actor "Технічний експерт" as TechnicalExpert #lightyellow
+
+usecase "<b>User management</b>\nКерування користувачами" as UserManagement 
+
+usecase "<b>DeleteUser</b>\nВидалення користувача" as DeleteUser #lightblue
+usecase "<b>UserRolePromote</b>\nПідвищення ролі користувача" as UserRolePromote #lightblue
+
+TechnicalExpert --> UserManagement
+
+DeleteUser .u.> UserManagement : "extends"
+UserRolePromote .u.> UserManagement : "extends"    
 
 @enduml
 
