@@ -55,7 +55,21 @@
 
 @startuml
 
-    
+actor "Користувач" as User #lightblue
+
+usecase "<b>Media content system</b>\nСистема медіа-контенту" as UC_1
+
+usecase "<b>ContentCreate</b>\nСтворення медіа-контенту" as UC_1_1 #lightblue
+usecase "<b>ContentSearch</b>\nПошук медіа-контенту" as UC_1_2 #lightblue
+usecase "<b>ContentUpdate</b>\nРедагування інформації про медіа-контент" as UC_1_3 #lightblue
+usecase "<b>ContentDelete</b>\nВидалення медіа-контенту" as UC_1_4 #lightblue
+
+User -d-> UC_1
+
+UC_1_1 .r.> UC_1: extends
+UC_1_2 .u.> UC_1: extends
+UC_1_3 .u.> UC_1: extends
+UC_1_4 .l.> UC_1: extends
 
 @enduml
 
