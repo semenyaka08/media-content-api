@@ -27,7 +27,7 @@
           end note
         |Система|
           : Система валідує отримані дані;
-          note left #ffaaaa
+          note right #ffaaaa
           <b> Можлива виключна ситуація:
           <b> Медіа-контент не проходить валідацію  
           <b> (InvalidContentDataException)
