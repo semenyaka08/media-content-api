@@ -13,13 +13,36 @@
 
 @startuml
 
-    
+actor "Гість" as Guest
+actor "Користувач" as User #lightblue
+actor "Технічний експерт" as Expert #lightyellow
+
+usecase "<b>UserRegister</b>\nЗареєструвати обліковий запис" as UC_1
+usecase "<b>UserLogin</b>\nУвійти в обліковий запис" as UC_2
+
+usecase "<b>Media content system</b>\nСистема медіа-контенту" as UC_3
+
+usecase "<b>User management</b>\nКерування користувачами" as UC_4
+
+Guest -u-> UC_1
+Guest -u-> UC_2
+
+User -u-|> Guest
+User -d-> UC_3
+
+Expert -u-|> Guest
+Expert -d-> UC_4
 
 @enduml
 
 **Рис. 1** Загальна діаграма прецедентів
 
 </center>
+
+Згідно з діаграмою система має **3** типи користувачів: 
+* **Гість** - неавторизований користувач. Має можливість створити обліковий запис або увійти в той, що існує. 
+* **Користувач** - авторизований користувач. Має можливість взаємодіяти з системою медіа-контенту. 
+* **Технічний експерт** - авторизований користувач з додатковими правами. Має можливість керувати іншими користувачами.
 
 ## Діаграма використання для Гостя
 
@@ -36,8 +59,8 @@
 
 actor "Гість" as Guest
 
-usecase "<b>Log in</b>\nЗареєструвати обліковий запис" as UC_1
-usecase "<b>Sign in</b>\nУвійти в обліковий запис" as UC_2
+usecase "<b>UserRegister</b>\nЗареєструвати обліковий запис" as UC_1
+usecase "<b>UserLogin</b>\nУвійти в обліковий запис" as UC_2
 
 Guest -d-> UC_1
 Guest -d-> UC_2
