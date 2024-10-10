@@ -34,11 +34,17 @@
 
 @startuml
 
-    
+actor "Гість" as Guest
+
+usecase "<b>Log in</b>\nЗареєструвати обліковий запис" as UC_1
+usecase "<b>Sign in</b>\nУвійти в обліковий запис" as UC_2
+
+Guest -d-> UC_1
+Guest -d-> UC_2
 
 @enduml
 
-**Рис. 2** Діаграма можливостей гостя
+**Рис. 2** Діаграма можливостей гостя  
 
 </center>
 
