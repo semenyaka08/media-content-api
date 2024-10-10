@@ -1,5 +1,123 @@
 # Модель прецедентів
 
+## Загальна діаграма прецедентів
+
+**На рис. 1 зображена загальна діаграма прецедентів та їх основні можливості.**
+
+<div style="text-align: center; margin: auto;">
+
+@startuml
+
+actor "Гість" as Guest
+actor "Користувач" as User #lightblue
+actor "Технічний експерт" as Expert #lightyellow
+
+usecase "<b>UserRegister</b>\nЗареєструвати обліковий запис" as UC_1
+usecase "<b>UserLogin</b>\nУвійти в обліковий запис" as UC_2
+
+usecase "<b>Media content system</b>\nСистема медіа-контенту" as UC_3
+
+usecase "<b>User management</b>\nКерування користувачами" as UC_4
+
+Guest -u-> UC_1
+Guest -u-> UC_2
+
+User -u-|> Guest
+User -d-> UC_3
+
+Expert -u-|> Guest
+Expert -d-> UC_4
+
+@enduml
+
+**Рис. 1** Загальна діаграма прецедентів
+
+</div>
+
+Згідно з діаграмою система має **3** типи користувачів: 
+* **Гість** - неавторизований користувач. Має можливість створити обліковий запис або увійти в той, що існує. 
+* **Користувач** - авторизований користувач. Має можливість взаємодіяти з системою медіа-контенту. 
+* **Технічний експерт** - авторизований користувач з додатковими правами. Має можливість керувати іншими користувачами.
+
+## Діаграма використання для Гостя
+
+**На рис. 2 зображені усі можливості гостя.**
+
+<div style="text-align: center; margin: auto;">
+
+@startuml
+
+actor "Гість" as Guest
+
+usecase "<b>UserRegister</b>\nЗареєструвати обліковий запис" as UC_1
+usecase "<b>UserLogin</b>\nУвійти в обліковий запис" as UC_2
+
+Guest -d-> UC_1
+Guest -d-> UC_2
+
+@enduml
+
+**Рис. 2** Діаграма можливостей гостя  
+
+</div>
+
+## Діаграма використання для Користувача
+
+**На рис. 3 зображені усі можливості користувача.**
+
+<div style="text-align: center; margin: auto;">
+
+@startuml
+
+actor "Користувач" as User #lightblue
+
+usecase "<b>Media content system</b>\nСистема медіа-контенту" as UC_1
+
+usecase "<b>ContentCreate</b>\nСтворення медіа-контенту" as UC_1_1 #lightblue
+usecase "<b>ContentSearch</b>\nПошук медіа-контенту" as UC_1_2 #lightblue
+usecase "<b>ContentUpdate</b>\nРедагування інформації про медіа-контент" as UC_1_3 #lightblue
+usecase "<b>ContentDelete</b>\nВидалення медіа-контенту" as UC_1_4 #lightblue
+
+User -d-> UC_1
+
+UC_1_1 .r.> UC_1: extends
+UC_1_2 .u.> UC_1: extends
+UC_1_3 .u.> UC_1: extends
+UC_1_4 .l.> UC_1: extends
+
+@enduml
+
+**Рис. 3** Діаграма можливостей користувача
+
+</div>
+
+## Діаграма використання для Технічного експерта
+
+**На рис. 4 зображені усі можливості технічного експерта.**
+
+<div style="text-align: center; margin: auto;">
+
+@startuml
+
+actor "Технічний експерт" as TechnicalExpert #lightyellow
+
+usecase "<b>User management</b>\nКерування користувачами" as UserManagement 
+
+usecase "<b>DeleteUser</b>\nВидалення користувача" as DeleteUser #lightblue
+usecase "<b>UserRolePromote</b>\nПідвищення ролі користувача" as UserRolePromote #lightblue
+
+TechnicalExpert --> UserManagement
+
+DeleteUser .u.> UserManagement : "extends"
+UserRolePromote .u.> UserManagement : "extends"    
+
+@enduml
+
+**Рис. 4** Діаграма можливостей технічного експерта
+
+</div>
+
+
 ## Сценарії використання для незареєстрованого користувача
 
 ### Реєстрація користувача (UserRegister)
@@ -93,11 +211,11 @@ stop
 5. Система перевіряє наявність облікового запису користувача.
 6. Система надає дозвіл користувачу отримати доступ до свого облікового запису.
 7. Система дає сигнал користувачу про успішну авторизацію.
-   
+  
 <div style="text-align: center; margin: auto;">
 
 @startuml
-
+  
 |Користувач| 
 start
 : Користувач відкриває сторінку входу;
@@ -129,7 +247,7 @@ stop
 @enduml
 
 </div>
-
+  
 ## Сценарії використання для зареєстрованого користувача
 
 ### Створення медіа-контенту (ContentCreate)
@@ -159,6 +277,8 @@ stop
 6. Система валідує отримані дані.
 7. Система зберігає наданий контент.
 8. Система дає сигнал користувачу про успішне створення.
+
+<div style="text-align: center; margin: auto;">
 
 @startuml
 
@@ -199,6 +319,7 @@ stop
 
 @enduml
 
+</div>
 
 ### Пошук медіа-контенту (ContentSearch)
 
@@ -225,6 +346,8 @@ stop
 6. Система збирає інформацію за наданими даними.
 7. Система аналізує та оброблює зібраний контент.
 8. Система виводить користувачу готовий результат.
+
+<div style="text-align: center; margin: auto;">
 
 @startuml
 
@@ -259,6 +382,7 @@ stop
 
 @enduml
 
+</div>
 
 ### Редагування інформації про медіа-контент (ContentUpdate)
 
@@ -286,6 +410,8 @@ stop
 6. Система валідує отриманий запит.
 7. Система оновлює інформацію про контент.
 8. Система дає сигнал користувачу про успішне оновлення.
+
+<div style="text-align: center; margin: auto;">
 
 @startuml
 
@@ -322,6 +448,7 @@ stop
 
 @enduml
 
+</div>
 
 ### Видалення медіа-контенту (ContentDelete)
 
@@ -346,6 +473,8 @@ stop
 4. Система перевіряє наявність відповідних прав у користувача.
 5. Система видаляє контент.
 6. Система дає сигнал користувачу про успішне видалення.
+
+<div style="text-align: center; margin: auto;">
 
 @startuml
 
@@ -375,3 +504,4 @@ stop
 
 @enduml
 
+</div>
