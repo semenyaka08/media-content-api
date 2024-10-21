@@ -21,22 +21,27 @@ User.email -d-* User
 User.password -d-* User
 
 
-entity MediaContent <<ENTITY>>
-entity MediaContent.id <<NUMBER>>
+entity MediaContent <<ENTITY>> #990099
+entity MediaContent.id <<NUMBER>> #CC00CC
+entity MediaContent.a <<A>> #CC00CC
 
 MediaContent.id -d-* MediaContent
+MediaContent.a -d-* MediaContent
 
 
-entity Role <<ENTITY>>
-entity Role.id <<NUMBER>>
+entity Role <<ENTITY>> #FFFF00
+entity Role.id <<NUMBER>> #FFFF66
+entity Role.a <<A>> #FFFF66
 
 Role.id -l-* Role
+Role.a -l-* Role
 
-
-entity Permission <<ENTITY>>
-entity Permission.id <<NUMBER>>
+entity Permission <<ENTITY>> #606060
+entity Permission.id <<NUMBER>> #A0A0A0
+entity Permission.a <<A>> #A0A0A0
 
 Permission.id -l-* Permission
+Permission.a -l-* Permission
 
 
 entity Source <<ENTITY>> #FF6500
@@ -44,7 +49,7 @@ entity Source.id <<NUMBER>> #FFBD73
 entity Source.name <<TEXT>> #FFBD73
 entity Source.url <<TEXT>> #FFBD73
 
-Source.id -d-* Source 
+Source.id --* Source 
 Source.name -r-* Source 
 Source.url -u-* Source
 
@@ -70,15 +75,64 @@ entity Tag.id <<NUMBER>> #BCF2F6
 Tag.id -u-* Tag 
 Tag.name -u-* Tag
 
-User -- MediaContent
-User -- AnalysisResult
-User -- Role
-Role -- Permission
-MediaContent -- Source
-MediaContent -- AnalysisResult
-MediaContent -- Tag
-AnalysisResult -- Tag
-Source -- Tag
+
+entity RolePermission <<ENTITY>>
+entity RolePermission.id <<NUMBER>>
+
+RolePermission.id -r-* RolePermission
+
+
+entity MediaContentSource <<ENTITY>>
+entity MediaContentSource.id <<NUMBER>>
+
+MediaContentSource.id --* MediaContentSource
+
+
+entity MediaContentAnalysisResult <<ENTITY>>
+entity MediaContentAnalysisResult.id <<NUMBER>>
+
+MediaContentAnalysisResult.id --* MediaContentAnalysisResult
+
+
+entity MediaContentTag <<ENTITY>>
+entity MediaContentTag.id <<NUMBER>>
+
+MediaContentTag.id --* MediaContentTag
+
+
+entity AnalysisResultTag <<ENTITY>>
+entity AnalysisResultTag.id <<NUMBER>>
+
+AnalysisResultTag.id -u-* AnalysisResultTag
+
+
+entity SourceTag <<ENTITY>>
+entity SourceTag.id <<NUMBER>>
+
+SourceTag.id -u-* SourceTag
+
+
+User "1.1" -- "0.*" MediaContent
+User "1.1" -- "0.*" AnalysisResult
+User "1.*" -- "1.1" Role
+
+Role "1.1" -- "0.*" RolePermission
+RolePermission "1.*" -- "1.1" Permission
+
+MediaContent "1.1" -- "0.*" MediaContentSource
+MediaContentSource "1.*" -- "1.1" Source
+
+MediaContent "1.1" -- "0.*" MediaContentAnalysisResult
+MediaContentAnalysisResult "1.*" -- "1.1" AnalysisResult
+
+MediaContent "1.1" -- "0.*" MediaContentTag
+MediaContentTag "1.*" -- "1.1" Tag
+
+AnalysisResult "1.1" -- "0.*" AnalysisResultTag
+AnalysisResultTag "1.*" -- "1.1" Tag
+
+Source "1.1" -- "0.*" SourceTag
+SourceTag "1.*" -- "1.1" Tag
 
 @enduml
 
