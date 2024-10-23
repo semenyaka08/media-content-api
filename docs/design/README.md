@@ -25,6 +25,7 @@ entity MediaContent <<ENTITY>> #990099
 entity MediaContent.id <<NUMBER>> #CC00CC
 entity MediaContent.title <<TEXT>> #CC00CC
 entity MediaContent.description <<TEXT>> #CC00CC
+entity MediaContent.body <<TEXT>> #CC00CC
 entity MediaContent.content_type <<TEXT>> #CC00CC
 entity MediaContent.created_at <<DATE>> #CC00CC
 entity MediaContent.updated_at <<DATE>> #CC00CC
@@ -32,6 +33,7 @@ entity MediaContent.updated_at <<DATE>> #CC00CC
 MediaContent.id --* MediaContent
 MediaContent.title --* MediaContent
 MediaContent.description --* MediaContent
+MediaContent.body --* MediaContent
 MediaContent.content_type --* MediaContent
 MediaContent.created_at --* MediaContent
 MediaContent.updated_at --* MediaContent
@@ -122,7 +124,6 @@ Source "1.1" -- "0.*" SourceTag
 SourceTag "1.*" -- "1.1" Tag
 
 @enduml
-
 
 - ER-модель
 - реляційна схема
