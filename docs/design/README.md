@@ -23,11 +23,20 @@ User.password --* User
 
 entity MediaContent <<ENTITY>> #990099
 entity MediaContent.id <<NUMBER>> #CC00CC
-entity MediaContent.a <<A>> #CC00CC
+entity MediaContent.user_id <<NUMBER>> #CC00CC
+entity MediaContent.title <<TEXT>> #CC00CC
+entity MediaContent.description <<TEXT>> #CC00CC
+entity MediaContent.content_type <<TEXT>> #CC00CC
+entity MediaContent.created_at <<DATE>> #CC00CC
+entity MediaContent.updated_at <<DATE>> #CC00CC
 
 MediaContent.id --* MediaContent
-MediaContent.a --* MediaContent
-
+MediaContent.user_id --* MediaContent
+MediaContent.title --* MediaContent
+MediaContent.description --* MediaContent
+MediaContent.content_type --* MediaContent
+MediaContent.created_at --* MediaContent
+MediaContent.updated_at --* MediaContent
 
 entity Role <<ENTITY>> #FFFF00
 entity Role.id <<NUMBER>> #FFFF66
