@@ -31,17 +31,21 @@ MediaContent.a -d-* MediaContent
 
 entity Role <<ENTITY>> #FFFF00
 entity Role.id <<NUMBER>> #FFFF66
-entity Role.a <<A>> #FFFF66
+entity Role.name <<TEXT>> #FFFF66
+entity Role.description <<TEXT>> #FFFF66
+
 
 Role.id -l-* Role
-Role.a -l-* Role
+Role.name -l-* Role
+Role.description -l-* Role
 
 entity Permission <<ENTITY>> #606060
 entity Permission.id <<NUMBER>> #A0A0A0
-entity Permission.a <<A>> #A0A0A0
+entity Permission.name <<TEXT>> #A0A0A0
+
 
 Permission.id -l-* Permission
-Permission.a -l-* Permission
+Permission.name -l-* Permission
 
 
 entity Source <<ENTITY>> #FF6500
@@ -77,9 +81,12 @@ Tag.name -u-* Tag
 
 
 entity RolePermission <<ENTITY>>
-entity RolePermission.id <<NUMBER>>
+entity RolePermission.role_id <<NUMBER>>
+entity RolePermission.permission_id <<NUMBER>>
 
-RolePermission.id -r-* RolePermission
+
+RolePermission.role_id -r-* RolePermission
+RolePermission.permission_id -r-* RolePermission
 
 
 entity MediaContentSource <<ENTITY>>
@@ -114,9 +121,12 @@ SourceTag.id -u-* SourceTag
 
 User "1.1" -- "0.*" MediaContent
 User "1.1" -- "0.*" AnalysisResult
+
 User "1.*" -- "1.1" Role
 
+
 Role "1.1" -- "0.*" RolePermission
+
 RolePermission "1.*" -- "1.1" Permission
 
 MediaContent "1.1" -- "0.*" MediaContentSource
