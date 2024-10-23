@@ -81,12 +81,6 @@ Tag.name -u-* Tag
 
 
 entity RolePermission <<ENTITY>>
-entity RolePermission.role_id <<NUMBER>>
-entity RolePermission.permission_id <<NUMBER>>
-
-
-RolePermission.role_id -r-* RolePermission
-RolePermission.permission_id -r-* RolePermission
 
 
 entity MediaContentSource <<ENTITY>>
