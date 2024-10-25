@@ -211,5 +211,9 @@ AnalysisResultTag }|--|| Tag
 
 @enduml
 
-- реляційна схема
+## Реляційна схема
+
+<p align="center">
+  <img src="./media/relational_schema.png" width="600">
+</p>
 
