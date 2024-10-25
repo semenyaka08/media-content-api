@@ -129,68 +129,84 @@ SourceTag "1.*" -- "1.1" Tag
 
 @startuml
 entity User {
-    +id: Number
+    +id: Int
     +first_name: Text
     +last_name: Text
     +email: Text
     +password: Text
+    +role_id : Int
 }
 
 entity Role {
-    +id: Number
+    +id: Int
     +name: Text
     +description: Text
 }
 
 entity Permission {
-    +id: Number
+    +id: Int
     +name: Text
 }
 
 entity MediaContent {
-  +id : Number
+  +id : Int
   +title : Text
   +description : Text
   +body : Text
   +content_type : Text
   +created_at : Date
   +updated_at : Date
+  +user_id : Int
+  +user_role_id : Int
 }
 
 entity Source {
-    +id: Number
+    +id: Int
     +name: Text
     +url: Text
 }
 
 entity Tag {
-    +id: Number
+    +id: Int
     +name: Text
 }
 
 entity AnalysisResult {
-    +id: Number
+    +id: Int
     +created_at: Date
     +title: Text
     +description: Text
     +body: Text
+    +user_id: Int
 }
 
 entity MediaContentSource {
+    source_id: Int
+    mediaContent_id: Int
 }
 
 entity MediaContentTag {
+    tag_id: Int
+    mediaContent_id: Int
 }
 
 entity MediaContentAnalysisResult {
+    mediaContent_id: Int
+    analysisResult_id: Int
 }
 
 entity RolePermission {
+    role_id: Int
+    permission_id: Int
 }
 
 entity AnalysisResultTag {
+    analysisResult_id: Int
+    tag_id: Int
 }
 entity SourceTag{
+    tag_id: Int
+    source_id: Int
 }
 
 User }|-- Role
