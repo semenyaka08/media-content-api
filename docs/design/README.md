@@ -148,13 +148,13 @@ entity Permission {
 }
 
 entity MediaContent {
-  +id : NUMBER
-  +title : TEXT
-  +description : TEXT
-  +body : TEXT
-  +content_type : TEXT
-  +created_at : DATE
-  +updated_at : DATE
+  +id : Number
+  +title : Text
+  +description : Text
+  +body : Text
+  +content_type : Text
+  +created_at : Date
+  +updated_at : Date
 }
 
 entity Source {
