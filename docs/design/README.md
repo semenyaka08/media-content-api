@@ -214,6 +214,6 @@ AnalysisResultTag }|--|| Tag
 ## Реляційна схема
 
 <p align="center">
-  <img src="./media/relational_schema.png" width="600">
+  <img src="./media/relational_schema.png" width="1000">
 </p>
 
