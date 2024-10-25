@@ -125,6 +125,91 @@ SourceTag "1.*" -- "1.1" Tag
 
 @enduml
 
-- ER-модель
+## ER-модель
+
+@startuml
+entity User {
+    +id: Number
+    +first_name: Text
+    +last_name: Text
+    +email: Text
+    +password: Text
+}
+
+entity Role {
+    +id: Number
+    +name: Text
+    +description: Text
+}
+
+entity Permission {
+    +id: Number
+    +name: Text
+}
+
+entity MediaContent {
+  +id : Number
+  +title : Text
+  +description : Text
+  +body : Text
+  +content_type : Text
+  +created_at : Date
+  +updated_at : Date
+}
+
+entity Source {
+    +id: Number
+    +name: Text
+    +url: Text
+}
+
+entity Tag {
+    +id: Number
+    +name: Text
+}
+
+entity AnalysisResult {
+    +id: Number
+    +created_at: Date
+    +title: Text
+    +description: Text
+    +body: Text
+}
+
+entity MediaContentSource {
+}
+
+entity MediaContentTag {
+}
+
+entity MediaContentAnalysisResult {
+}
+
+entity RolePermission {
+}
+
+entity AnalysisResultTag {
+}
+entity SourceTag{
+}
+
+User }|-- Role
+User --o{ MediaContent
+User --o{ AnalysisResult
+Role --o{ RolePermission 
+RolePermission }|-- Permission 
+MediaContent --o{ MediaContentTag
+MediaContent --o{ MediaContentSource 
+MediaContent --o{ MediaContentAnalysisResult
+AnalysisResult --|{ MediaContentAnalysisResult
+AnalysisResult --o{ AnalysisResultTag
+MediaContentTag }|-- Tag
+MediaContentSource }|-- Source
+Source --o{ SourceTag
+SourceTag }|-- Tag
+AnalysisResultTag }|--|| Tag
+
+@enduml
+
 - реляційна схема
 
