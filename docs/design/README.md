@@ -193,6 +193,21 @@ entity AnalysisResultTag {
 entity SourceTag{
 }
 
+User }|-- Role
+User --o{ MediaContent
+User --o{ AnalysisResult
+Role --o{ RolePermission 
+RolePermission }|-- Permission 
+MediaContent --o{ MediaContentTag
+MediaContent --o{ MediaContentSource 
+MediaContent --o{ MediaContentAnalysisResult
+AnalysisResult --|{ MediaContentAnalysisResult
+AnalysisResult --o{ AnalysisResultTag
+MediaContentTag }|-- Tag
+MediaContentSource }|-- Source
+Source --o{ SourceTag
+SourceTag }|-- Tag
+AnalysisResultTag }|--|| Tag
 
 @enduml
 
