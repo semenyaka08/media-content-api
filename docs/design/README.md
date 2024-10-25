@@ -28,7 +28,6 @@ entity MediaContent.description <<TEXT>> #CC00CC
 entity MediaContent.body <<TEXT>> #CC00CC
 entity MediaContent.content_type <<TEXT>> #CC00CC
 entity MediaContent.created_at <<DATE>> #CC00CC
-entity MediaContent.updated_at <<DATE>> #CC00CC
 
 MediaContent.id --* MediaContent
 MediaContent.title --* MediaContent
@@ -36,7 +35,7 @@ MediaContent.description --* MediaContent
 MediaContent.body --* MediaContent
 MediaContent.content_type --* MediaContent
 MediaContent.created_at --* MediaContent
-MediaContent.updated_at --* MediaContent
+
 
 entity Role <<ENTITY>> #FFFF00
 entity Role.id <<NUMBER>> #FFFF66
@@ -52,8 +51,8 @@ entity Permission <<ENTITY>> #606060
 entity Permission.id <<NUMBER>> #A0A0A0
 entity Permission.name <<TEXT>> #A0A0A0
 
-Permission.id -u-* Permission
-Permission.name -u-* Permission
+Permission.id --* Permission
+Permission.name --* Permission
 
 
 entity Source <<ENTITY>> #FF6500
@@ -80,6 +79,18 @@ AnalysisResult.description --* AnalysisResult
 AnalysisResult.body --* AnalysisResult
 
 
+entity AnalysisReport <<ENTITY>> #FF00FF
+entity AnalysisReport.id <<NUMBER>> #FF66FF
+entity AnalysisReport.created_at <<DATE>> #FF66FF
+entity AnalysisReport.title <<TEXT>> #FF66FF
+entity AnalysisReport.body <<TEXT>> #FF66FF
+
+AnalysisReport.id --* AnalysisReport
+AnalysisReport.created_at --* AnalysisReport
+AnalysisReport.title --* AnalysisReport
+AnalysisReport.body --* AnalysisReport
+
+
 entity Tag <<ENTITY>> #08C2FF 
 entity Tag.name <<TEXT>> #BCF2F6 
 entity Tag.id <<NUMBER>> #BCF2F6
@@ -87,6 +98,8 @@ entity Tag.id <<NUMBER>> #BCF2F6
 Tag.id --* Tag 
 Tag.name --* Tag
 
+
+entity UserRole <<ENTITY>>
 
 entity RolePermission <<ENTITY>>
 
@@ -98,30 +111,40 @@ entity MediaContentTag <<ENTITY>>
 
 entity AnalysisResultTag <<ENTITY>>
 
+entity AnalysisReportTag <<ENTITY>>
+
 entity SourceTag <<ENTITY>>
 
 
 User "1.1" -- "0.*" MediaContent
 User "1.1" -- "0.*" AnalysisResult
-User "1.*" -- "1.1" Role
+User "1.1" -- "0.*" AnalysisReport
+
+User "1.1" -- "0.*" UserRole
+UserRole "0.*" -- "1.1" Role
 
 Role "1.1" -- "0.*" RolePermission
-RolePermission "1.*" -- "1.1" Permission
+RolePermission "0.*" -- "1.1" Permission
 
-MediaContent "1.1" -- "0.*" MediaContentSource
-MediaContentSource "1.*" -- "1.1" Source
+MediaContent "1.1" -l- "0.*" MediaContentSource
+MediaContentSource "0.*" -- "1.1" Source
 
 MediaContent "1.1" -- "0.*" MediaContentAnalysisResult
-MediaContentAnalysisResult "1.*" -- "1.1" AnalysisResult
+MediaContentAnalysisResult "0.*" -- "1.1" AnalysisResult
 
 MediaContent "1.1" -- "0.*" MediaContentTag
-MediaContentTag "1.*" -- "1.1" Tag
+MediaContentTag "0.*" -- "1.1" Tag
 
 AnalysisResult "1.1" -- "0.*" AnalysisResultTag
-AnalysisResultTag "1.*" -- "1.1" Tag
+AnalysisResultTag "0.*" -- "1.1" Tag
+
+AnalysisResult "1.*" -- "1.1" AnalysisReport
+
+AnalysisReport "1.1" -- "0.*" AnalysisReportTag
+AnalysisReportTag "0.*" -- "1.1" Tag
 
 Source "1.1" -- "0.*" SourceTag
-SourceTag "1.*" -- "1.1" Tag
+SourceTag "0.*" -- "1.1" Tag
 
 @enduml
 
