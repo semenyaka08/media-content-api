@@ -134,7 +134,6 @@ entity User {
     +last_name: Text
     +email: Text
     +password: Text
-    +role_id : Int
 }
 
 entity Role {
@@ -233,18 +232,18 @@ User ||--o{ AnalysisResult
 User ||--o{ AnalysisReport
 UserRole }o--|| Role
 Role ||--o{ RolePermission 
-RolePermission }|--|| Permission 
+RolePermission }o--|| Permission 
 MediaContent ||--o{ MediaContentTag
 MediaContent ||--o{ MediaContentSource 
 MediaContent ||--o{ MediaContentAnalysisResult
 MediaContentAnalysisResult }o--|| AnalysisResult 
 AnalysisResult ||--o{ AnalysisResultTag
 AnalysisResult }|--|| AnalysisReport
-MediaContentTag }|--|| Tag
+MediaContentTag }o--|| Tag
 MediaContentSource }o--|| Source
 Source ||--o{ SourceTag
 SourceTag }o--|| Tag
-AnalysisResultTag }|--|| Tag
+AnalysisResultTag }o--|| Tag
 AnalysisReport ||--o{ AnalysisReportTag
 AnalysisReportTag }o--|| Tag
 @enduml
