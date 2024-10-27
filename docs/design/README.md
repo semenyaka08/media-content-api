@@ -155,7 +155,6 @@ entity MediaContent {
   +content_type : Text
   +created_at : Date
   +user_id : Int
-  +user_role_id : Int
 }
 
 entity Source {
@@ -175,7 +174,7 @@ entity AnalysisResult {
     +title: Text
     +description: Text
     +body: Text
-    +user_id: Int
+    +analysisReport_id: Int
 }
 
 entity AnalysisReport {
@@ -183,6 +182,7 @@ entity AnalysisReport {
     +title: Text
     +body: Text
     +created_at: Date
+    +user_id: Int
 }
 
 entity MediaContentSource {
