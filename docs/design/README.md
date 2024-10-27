@@ -155,7 +155,6 @@ entity MediaContent {
   +body : Text
   +content_type : Text
   +created_at : Date
-  +updated_at : Date
   +user_id : Int
   +user_role_id : Int
 }
@@ -178,6 +177,13 @@ entity AnalysisResult {
     +description: Text
     +body: Text
     +user_id: Int
+}
+
+entity AnalysisReport {
+    +id: Int
+    +title: Text
+    +body: Text
+    +created_at: Date
 }
 
 entity MediaContentSource {
@@ -204,27 +210,43 @@ entity AnalysisResultTag {
     analysisResult_id: Int
     tag_id: Int
 }
+
 entity SourceTag{
     tag_id: Int
     source_id: Int
 }
 
-User }|-- Role
-User --o{ MediaContent
-User --o{ AnalysisResult
-Role --o{ RolePermission 
-RolePermission }|-- Permission 
-MediaContent --o{ MediaContentTag
-MediaContent --o{ MediaContentSource 
-MediaContent --o{ MediaContentAnalysisResult
-AnalysisResult --|{ MediaContentAnalysisResult
-AnalysisResult --o{ AnalysisResultTag
-MediaContentTag }|-- Tag
-MediaContentSource }|-- Source
-Source --o{ SourceTag
-SourceTag }|-- Tag
-AnalysisResultTag }|--|| Tag
+entity UserRole {
+    user_id: Int
+    role_id: Int
+}
 
+entity AnalysisReportTag {
+    analysisReport_id: Int
+    tag_id: Int
+}
+
+
+User ||--o{ UserRole
+User ||--o{ MediaContent
+User ||--o{ AnalysisResult
+User ||--o{ AnalysisReport
+UserRole }o--|| Role
+Role ||--o{ RolePermission 
+RolePermission }|--|| Permission 
+MediaContent ||--o{ MediaContentTag
+MediaContent ||--o{ MediaContentSource 
+MediaContent ||--o{ MediaContentAnalysisResult
+MediaContentAnalysisResult }o--|| AnalysisResult 
+AnalysisResult ||--o{ AnalysisResultTag
+AnalysisResult }|--|| AnalysisReport
+MediaContentTag }|--|| Tag
+MediaContentSource }o--|| Source
+Source ||--o{ SourceTag
+SourceTag }o--|| Tag
+AnalysisResultTag }|--|| Tag
+AnalysisReport ||--o{ AnalysisReportTag
+AnalysisReportTag }o--|| Tag
 @enduml
 
 - реляційна схема
