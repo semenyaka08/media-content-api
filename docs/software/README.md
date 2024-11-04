@@ -348,10 +348,10 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
--- Data for table `mydb`.`User`
+-- Data for table `media_system`.`User`
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES 
+USE `media_system`;
+INSERT INTO `media_system`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES 
 (1, 'Vladyslav', 'Sokolov', 'pppvladsok@gmail.com', 'vlada1976'),
 (2, 'John', 'Doe', 'john.doe2000@gmail.com', '756433456'),
 (3, 'Veronica', 'Shevchenko', 'lapamapa@ukr.net', 'geog21224'),
@@ -362,10 +362,10 @@ INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`)
 (8, 'Anastasia', 'Golovchenko', 'ddd.anasnata@gmail.com', 'adacjavasj2');
 COMMIT;
 
--- Data for table `mydb`.`UserRole`
+-- Data for table `media_system`.`UserRole`
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES 
+USE `media_system`;
+INSERT INTO `media_system`.`UserRole` (`user_id`, `role_id`) VALUES 
 (1, 1), (1, 2),
 (2, 2),
 (3, 1), (3, 2),
