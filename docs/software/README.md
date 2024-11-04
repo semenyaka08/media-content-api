@@ -348,6 +348,43 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+-- -----------------------------------------------------
+-- Data for table `mydb`.`User`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mydb`;
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (1, 'Vladyslav', 'Sokolov', 'pppvladsok@gmail.com', 'vlada1976');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (2, 'John', 'Doe', 'john.doe2000@gmail.com', '756433456');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (3, 'Veronica', 'Shevchenko', 'lapamapa@ukr.net', 'geog21224');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (4, 'Fiona', 'Martinez', 'fiona.martinez2@gmail.com', 'fieNa231');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (5, 'Bob', 'Brown', 'cliriks@gmail.com', 'mamaaa1945');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (6, 'David', 'Soloh', 'davasolom@gmail.com', 'timetorest');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (7, 'Sergey', 'Semenyaka', 's.semenyaka@gmail.com', 'bazovichok222');
+INSERT INTO `mydb`.`User` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (8, 'Anastasia', 'Golovchenko', 'ddd.anasnata@gmail.com', 'adacjavasj2');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `mydb`.`UserRole`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mydb`;
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (1, 1);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (1, 2);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (2, 2);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (3, 1);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (3, 2);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (4, 1);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (5, 2);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (6, 1);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (7, 2);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (8, 1);
+INSERT INTO `mydb`.`UserRole` (`user_id`, `role_id`) VALUES (8, 2);
+
+COMMIT;
+
+
 ```
 
 
