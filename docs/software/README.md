@@ -5,9 +5,7 @@
 
 ```sql
 
-CREATE SCHEMA IF NOT EXISTS media_system;
 
-SET search_path TO media_system;
 
 ```
 
