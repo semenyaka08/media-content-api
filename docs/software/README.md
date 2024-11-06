@@ -412,6 +412,48 @@ INSERT INTO UserRole (user_id, role_id) VALUES
 (7, 2),
 (8, 1), (8, 2);
 
+-- AnalysisReportTag table
+INSERT INTO AnalysisReportTag (analysisReport_id, tag_id) VALUES 
+(1, 1), 
+(1, 2), 
+(2, 3), 
+(3, 1), 
+(4, 4), 
+(5, 2), 
+(6, 5), 
+(7, 6), 
+(8, 1), 
+(9, 3), 
+(10, 2);
+
+-- MediaContentTag table
+INSERT INTO MediaContentTag (tag_id, mediaContent_id) VALUES 
+(1, 1), 
+(2, 1), 
+(3, 2), 
+(4, 3), 
+(5, 4), 
+(6, 5), 
+(7, 6), 
+(8, 7), 
+(9, 8), 
+(10, 9), 
+(1, 10);
+
+-- SourceTag table
+INSERT INTO SourceTag (tag_id, source_id) VALUES 
+(1, 1), 
+(2, 2), 
+(3, 3), 
+(4, 4), 
+(5, 5), 
+(6, 6), 
+(7, 7), 
+(8, 8), 
+(9, 9), 
+(10, 10);
+
+
 COMMIT;
 
 
