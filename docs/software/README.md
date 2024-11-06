@@ -508,6 +508,73 @@ INSERT INTO AnalysisResult (`id`, `title`, `description`, `body`, `created_at`, 
 (9, 'Logistics Efficiency Review', 'Evaluation of logistics and delivery times.', 'Identified delays in supply chain process.', '2024-02-09', 9, 4),
 (10, 'User Journey Insights', 'Behavioral insights on user website journey.', 'Detailed report on user interactions.', '2024-02-10', 10, 2);
 
+-- AnalysisReportTag table
+INSERT INTO AnalysisReportTag (analysisReport_id, tag_id) VALUES 
+(1, 2),  
+(2, 2),  
+(3, 3),  
+(4, 2), 
+(5, 8),  
+(6, 3),  
+(7, 2),  
+(8, 1), 
+(9, 8),  
+(10, 2);
+
+-- MediaContentTag table
+INSERT INTO MediaContentTag (tag_id, mediaContent_id) VALUES 
+(1, 1), 
+(1, 2),
+(1, 3),
+(1, 5),
+(1, 7), 
+(1, 10),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 7),
+(2, 10),
+(3, 4),
+(3, 10),
+(4, 6),
+(5, 1),
+(5, 7),
+(6, 3),
+(7, 5),
+(8, 7),
+(9, 8),
+(9,9),
+(10, 4),
+(10, 10);
+
+-- SourceTag table
+INSERT INTO SourceTag (tag_id, source_id) VALUES 
+(1, 1), 
+(1, 3),
+(1, 4),
+(1, 10),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 10),
+(3, 4),
+(3, 10),
+(4, 1),
+(4, 6),
+(5, 1),
+(6, 1),
+(6, 3),
+(7, 2),
+(7, 5),
+(8, 1),
+(9, 8),
+(9, 9),
+(10, 4),
+(10, 10);
+
+
 COMMIT;
 
 ```
