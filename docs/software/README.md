@@ -412,6 +412,30 @@ INSERT INTO UserRole (user_id, role_id) VALUES
 (7, 2),
 (8, 1), (8, 2);
 
+-- Role table
+INSERT INTO Role (id, name, description) VALUES
+(1, 'User', 'An ordinary user of the system'),
+(2, 'TechnicalExpert', 'Specialist in technical issues');
+
+-- AnalysisResultTag table
+INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
+(1, 1), 
+(1, 11),
+(2, 5),
+(2, 11), 
+(3, 12), 
+(4, 13), 
+(5, 14), 
+(6, 3), 
+(6, 15), 
+(7, 16), 
+(8, 17), 
+(9, 18), 
+(10, 2), 
+(10, 19);
+
+COMMIT;
+
 -- AnalysisReport table
 INSERT INTO AnalysisReport (`id`, `title`, `body`, `created_at`, `user_id`) VALUES 
 (1, 'Quarterly Performance Analysis', 'In-depth analysis of quarterly performance.', '2024-01-01', 1),
