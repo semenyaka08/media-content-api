@@ -412,6 +412,24 @@ INSERT INTO UserRole (user_id, role_id) VALUES
 (7, 2),
 (8, 1), (8, 2);
 
+-- Role table
+INSERT INTO Role (id, name, description) VALUES
+(1, 'User', 'An ordinary user of the system'),
+(2, 'TechnicalExpert', 'Specialist in technical issues');
+
+-- AnalysisResultTag table
+INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
 COMMIT;
 
 
