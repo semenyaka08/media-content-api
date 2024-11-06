@@ -436,6 +436,33 @@ INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
 
 COMMIT;
 
+-- AnalysisReport table
+INSERT INTO AnalysisReport (`id`, `title`, `body`, `created_at`, `user_id`) VALUES 
+(1, 'Quarterly Performance Analysis', 'In-depth analysis of quarterly performance.', '2024-01-01', 1),
+(2, 'Market Trend Report', 'Overview of market trends for the current quarter.', '2024-01-02', 2),
+(3, 'Customer Feedback Summary', 'Compilation of recent customer feedback.', '2024-01-03', 1),
+(4, 'Product Launch Analysis', 'Analysis of the latest product launch success.', '2024-01-04', 3),
+(5, 'Annual Revenue Forecast', 'Forecast based on historical data and market trends.', '2024-01-05', 2),
+(6, 'Employee Satisfaction Report', 'Analysis of recent employee satisfaction survey.', '2024-01-06', 4),
+(7, 'Social Media Impact Study', 'Impact analysis of social media campaigns.', '2024-01-07', 1),
+(8, 'Competitor Benchmarking', 'Comparison of our product against competitors.', '2024-01-08', 3),
+(9, 'Supply Chain Efficiency', 'Evaluation of supply chain performance and bottlenecks.', '2024-01-09', 4),
+(10, 'Website Traffic Analysis', 'Insight into website traffic and user behavior.', '2024-01-10', 2);
+
+-- AnalysisResult table
+INSERT INTO AnalysisResult (`id`, `title`, `description`, `body`, `created_at`, `analysisReport_id`, `user_id`) VALUES
+(1, 'Q1 Growth Factors', 'Identified factors contributing to growth in Q1.', 'Analysis highlights key growth drivers.', '2024-02-01', 1, 1),
+(2, 'Emerging Markets Overview', 'Details on potential emerging markets.', 'Summary of trends in new markets.', '2024-02-02', 2, 2),
+(3, 'Top Customer Concerns', 'Key issues raised by customers recently.', 'Detailed analysis of common customer issues.', '2024-02-03', 3, 1),
+(4, 'Launch Day Performance', 'Performance metrics on product launch day.', 'In-depth analysis of initial product success.', '2024-02-04', 4, 3),
+(5, 'Projected Sales for Q3', 'Sales projection for the next quarter.', 'Data-driven sales projections based on trends.', '2024-02-05', 5, 2),
+(6, 'Employee Morale Trends', 'Insights from recent employee feedback.', 'Analysis shows recent morale trends.', '2024-02-06', 6, 4),
+(7, 'Social Media Engagement', 'Performance of recent social campaigns.', 'Highlights of user engagement metrics.', '2024-02-07', 7, 1),
+(8, 'Competitor Price Comparison', 'Price benchmarking against competitors.', 'Comparative analysis of pricing structures.', '2024-02-08', 8, 3),
+(9, 'Logistics Efficiency Review', 'Evaluation of logistics and delivery times.', 'Identified delays in supply chain process.', '2024-02-09', 9, 4),
+(10, 'User Journey Insights', 'Behavioral insights on user website journey.', 'Detailed report on user interactions.', '2024-02-10', 10, 2);
+
+COMMIT;
 
 ```
 
