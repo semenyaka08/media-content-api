@@ -412,6 +412,54 @@ INSERT INTO UserRole (user_id, role_id) VALUES
 (7, 2),
 (8, 1), (8, 2);
 
+-- Source table
+INSERT INTO Source (id, name, url) VALUES
+(1, 'National Geographic', 'https://www.nationalgeographic.com'),
+(2, 'TechCrunch', 'https://techcrunch.com'),
+(3, 'NASA', 'https://www.nasa.gov'),
+(4, 'Healthline', 'https://www.healthline.com'),
+(5, 'Quanta Magazine', 'https://www.quantamagazine.org'),
+(6, 'TripAdvisor', 'https://www.tripadvisor.com'),
+(7, 'YouTube', 'https://www.youtube.com'),
+(8, 'GameSpot', 'https://www.gamespot.com'),
+(9, 'PlayStation Blog', 'https://blog.playstation.com'),
+(10, 'MedTech News', 'https://www.medtechnews.com');
+
+-- MediaContentSource table
+INSERT INTO MediaContentSource (source_id, mediaContent_id) VALUES
+(1, 1), (1, 10),
+(2, 2), (2, 9),
+(3, 3), (3, 8),
+(4, 4), (4, 7),
+(5, 5), (5, 6),
+(6, 6), (6, 5),
+(7, 7), (7, 4),
+(8, 8), (8, 3),
+(9, 9), (9, 2),
+(10, 10), (10, 1);
+
+-- Tag table
+INSERT INTO Tag (id, name) VALUES
+(1, 'Science'),
+(2, 'Technology'),
+(3, 'Health'),
+(4, 'Travel'),
+(5, 'Environment'),
+(6, 'Space Exploration'),
+(7, 'Quantum Computing'),
+(8, 'Renewable Energy'),
+(9, 'Gaming'),
+(10, 'Medicine'),
+(11, 'Market Analysis'),
+(12, 'Customer Insights'),
+(13, 'Product Launch'),
+(14, 'Sales Projections'),
+(15, 'Employee Feedback'),
+(16, 'Social Media'),
+(17, 'Competitor Analysis'),
+(18, 'Logistics'),
+(19, 'User Experience');
+
 -- Role table
 INSERT INTO Role (id, name, description) VALUES
 (1, 'User', 'An ordinary user of the system'),
@@ -433,8 +481,6 @@ INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
 (9, 18), 
 (10, 2), 
 (10, 19);
-
-COMMIT;
 
 -- AnalysisReport table
 INSERT INTO AnalysisReport (`id`, `title`, `body`, `created_at`, `user_id`) VALUES 
