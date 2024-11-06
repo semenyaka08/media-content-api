@@ -449,7 +449,16 @@ INSERT INTO Tag (id, name) VALUES
 (7, 'Quantum Computing'),
 (8, 'Renewable Energy'),
 (9, 'Gaming'),
-(10, 'Medicine');
+(10, 'Medicine'),
+(11, 'Market Analysis'),
+(12, 'Customer Insights'),
+(13, 'Product Launch'),
+(14, 'Sales Projections'),
+(15, 'Employee Feedback'),
+(16, 'Social Media'),
+(17, 'Competitor Analysis'),
+(18, 'Logistics'),
+(19, 'User Experience');
 
 COMMIT;
 
