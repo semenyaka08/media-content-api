@@ -421,10 +421,6 @@ INSERT INTO AnalysisReportTag (analysisReport_id, tag_id) VALUES
 (4, 4), 
 (5, 2), 
 (6, 5), 
-(7, 6), 
-(8, 1), 
-(9, 3), 
-(10, 2);
 
 -- MediaContentTag table
 INSERT INTO MediaContentTag (tag_id, mediaContent_id) VALUES 
@@ -436,22 +432,17 @@ INSERT INTO MediaContentTag (tag_id, mediaContent_id) VALUES
 (6, 5), 
 (7, 6), 
 (8, 7), 
-(9, 8), 
-(10, 9), 
-(1, 10);
 
 -- SourceTag table
 INSERT INTO SourceTag (tag_id, source_id) VALUES 
 (1, 1), 
 (2, 2), 
-(3, 3), 
+(3, 3),
+(3, 2), 
+(4, 3), 
 (4, 4), 
 (5, 5), 
 (6, 6), 
-(7, 7), 
-(8, 8), 
-(9, 9), 
-(10, 10);
 
 
 COMMIT;
