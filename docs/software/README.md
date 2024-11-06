@@ -412,6 +412,102 @@ INSERT INTO UserRole (user_id, role_id) VALUES
 (7, 2),
 (8, 1), (8, 2);
 
+-- Source table
+INSERT INTO Source (id, name, url) VALUES
+(1, 'National Geographic', 'https://www.nationalgeographic.com'),
+(2, 'TechCrunch', 'https://techcrunch.com'),
+(3, 'NASA', 'https://www.nasa.gov'),
+(4, 'Healthline', 'https://www.healthline.com'),
+(5, 'Quanta Magazine', 'https://www.quantamagazine.org'),
+(6, 'TripAdvisor', 'https://www.tripadvisor.com'),
+(7, 'YouTube', 'https://www.youtube.com'),
+(8, 'GameSpot', 'https://www.gamespot.com'),
+(9, 'PlayStation Blog', 'https://blog.playstation.com'),
+(10, 'MedTech News', 'https://www.medtechnews.com');
+
+-- MediaContentSource table
+INSERT INTO MediaContentSource (source_id, mediaContent_id) VALUES
+(1, 1), (1, 10),
+(2, 2), (2, 9),
+(3, 3), (3, 8),
+(4, 4), (4, 7),
+(5, 5), (5, 6),
+(6, 6), (6, 5),
+(7, 7), (7, 4),
+(8, 8), (8, 3),
+(9, 9), (9, 2),
+(10, 10), (10, 1);
+
+-- Tag table
+INSERT INTO Tag (id, name) VALUES
+(1, 'Science'),
+(2, 'Technology'),
+(3, 'Health'),
+(4, 'Travel'),
+(5, 'Environment'),
+(6, 'Space Exploration'),
+(7, 'Quantum Computing'),
+(8, 'Renewable Energy'),
+(9, 'Gaming'),
+(10, 'Medicine'),
+(11, 'Market Analysis'),
+(12, 'Customer Insights'),
+(13, 'Product Launch'),
+(14, 'Sales Projections'),
+(15, 'Employee Feedback'),
+(16, 'Social Media'),
+(17, 'Competitor Analysis'),
+(18, 'Logistics'),
+(19, 'User Experience');
+
+-- Role table
+INSERT INTO Role (id, name, description) VALUES
+(1, 'User', 'An ordinary user of the system'),
+(2, 'TechnicalExpert', 'Specialist in technical issues');
+
+-- AnalysisResultTag table
+INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
+(1, 1), 
+(1, 11),
+(2, 5),
+(2, 11), 
+(3, 12), 
+(4, 13), 
+(5, 14), 
+(6, 3), 
+(6, 15), 
+(7, 16), 
+(8, 17), 
+(9, 18), 
+(10, 2), 
+(10, 19);
+
+-- AnalysisReport table
+INSERT INTO AnalysisReport (`id`, `title`, `body`, `created_at`, `user_id`) VALUES 
+(1, 'Quarterly Performance Analysis', 'In-depth analysis of quarterly performance.', '2024-01-01', 1),
+(2, 'Market Trend Report', 'Overview of market trends for the current quarter.', '2024-01-02', 2),
+(3, 'Customer Feedback Summary', 'Compilation of recent customer feedback.', '2024-01-03', 1),
+(4, 'Product Launch Analysis', 'Analysis of the latest product launch success.', '2024-01-04', 3),
+(5, 'Annual Revenue Forecast', 'Forecast based on historical data and market trends.', '2024-01-05', 2),
+(6, 'Employee Satisfaction Report', 'Analysis of recent employee satisfaction survey.', '2024-01-06', 4),
+(7, 'Social Media Impact Study', 'Impact analysis of social media campaigns.', '2024-01-07', 1),
+(8, 'Competitor Benchmarking', 'Comparison of our product against competitors.', '2024-01-08', 3),
+(9, 'Supply Chain Efficiency', 'Evaluation of supply chain performance and bottlenecks.', '2024-01-09', 4),
+(10, 'Website Traffic Analysis', 'Insight into website traffic and user behavior.', '2024-01-10', 2);
+
+-- AnalysisResult table
+INSERT INTO AnalysisResult (`id`, `title`, `description`, `body`, `created_at`, `analysisReport_id`, `user_id`) VALUES
+(1, 'Q1 Growth Factors', 'Identified factors contributing to growth in Q1.', 'Analysis highlights key growth drivers.', '2024-02-01', 1, 1),
+(2, 'Emerging Markets Overview', 'Details on potential emerging markets.', 'Summary of trends in new markets.', '2024-02-02', 2, 2),
+(3, 'Top Customer Concerns', 'Key issues raised by customers recently.', 'Detailed analysis of common customer issues.', '2024-02-03', 3, 1),
+(4, 'Launch Day Performance', 'Performance metrics on product launch day.', 'In-depth analysis of initial product success.', '2024-02-04', 4, 3),
+(5, 'Projected Sales for Q3', 'Sales projection for the next quarter.', 'Data-driven sales projections based on trends.', '2024-02-05', 5, 2),
+(6, 'Employee Morale Trends', 'Insights from recent employee feedback.', 'Analysis shows recent morale trends.', '2024-02-06', 6, 4),
+(7, 'Social Media Engagement', 'Performance of recent social campaigns.', 'Highlights of user engagement metrics.', '2024-02-07', 7, 1),
+(8, 'Competitor Price Comparison', 'Price benchmarking against competitors.', 'Comparative analysis of pricing structures.', '2024-02-08', 8, 3),
+(9, 'Logistics Efficiency Review', 'Evaluation of logistics and delivery times.', 'Identified delays in supply chain process.', '2024-02-09', 9, 4),
+(10, 'User Journey Insights', 'Behavioral insights on user website journey.', 'Detailed report on user interactions.', '2024-02-10', 10, 2);
+
 -- AnalysisReportTag table
 INSERT INTO AnalysisReportTag (analysisReport_id, tag_id) VALUES 
 (1, 2),  
@@ -480,7 +576,6 @@ INSERT INTO SourceTag (tag_id, source_id) VALUES
 
 
 COMMIT;
-
 
 ```
 
