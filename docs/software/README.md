@@ -419,16 +419,20 @@ INSERT INTO Role (id, name, description) VALUES
 
 -- AnalysisResultTag table
 INSERT INTO AnalysisResultTag (analysisResult_id, tag_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+(1, 1), 
+(1, 11),
+(2, 5),
+(2, 11), 
+(3, 12), 
+(4, 13), 
+(5, 14), 
+(6, 3), 
+(6, 15), 
+(7, 16), 
+(8, 17), 
+(9, 18), 
+(10, 2), 
+(10, 19);
 
 COMMIT;
 
