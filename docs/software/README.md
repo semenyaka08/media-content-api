@@ -574,6 +574,27 @@ INSERT INTO SourceTag (tag_id, source_id) VALUES
 (10, 4),
 (10, 10);
 
+-- Permisson table
+INSERT INTO Permission (id, name) VALUES
+(1, 'user.role.promote'),
+(2, 'user.delete'),
+(3, 'content.create'),
+(4, 'content.search'),
+(5, 'content.update'),
+(6, 'content.delete');
+
+-- RolePermisson table
+INSERT INTO RolePermission (role_id, permission_id) VALUES
+(2, 1),
+(2, 2),
+(1, 3),
+(2, 3),
+(1, 4),
+(2, 4),
+(1, 5),
+(2, 5),
+(1, 6),
+(2, 6);
 
 COMMIT;
 
